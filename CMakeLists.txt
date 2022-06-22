@@ -34,6 +34,7 @@ add_executable(
   src/main.cc
   src/blocknote/block.cc
   src/blocknote/wallet.cc
+  src/blocknote/sha256.cc
 )
 
 include_directories(
