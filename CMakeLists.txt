@@ -32,12 +32,17 @@ endif()
 add_executable(
   blocknote-chain
   src/main.cc
-  src/bnc/block.cc
-  src/bnc/wallet.cc
+  src/blocknote/block.cc
+  src/blocknote/wallet.cc
 )
 
-  target_link_libraries(
-    blocknote-chain 
-    ${BOOST_LIBRARIES} 
-    OpenSSL::SSL 
+include_directories(
+  blocknote-chain
+  include/
+)
+
+target_link_libraries(
+  blocknote-chain 
+  ${BOOST_LIBRARIES} 
+  OpenSSL::SSL 
 )
