@@ -1,6 +1,7 @@
+#include <stdlib.h>
+
 #include "blocknote.hh"
 
-int main(int argc, char **argv) {
-  std::cout << "It works!" << std::endl;
-  return EXIT_SUCCESS;
+int main(int argc, char **argv) { 
+  return EXIT_SUCCESS; 
 }
