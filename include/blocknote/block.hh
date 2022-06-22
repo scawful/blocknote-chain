@@ -27,6 +27,7 @@ class block {
   ~block() = default;
   explicit block(uint64_t h) { header_.height = h; }
 
+  void print();
   tx_list_t tx_list() const;
   block::blockheader header() const;
   std::string hash() const;
