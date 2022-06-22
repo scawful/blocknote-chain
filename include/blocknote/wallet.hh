@@ -1,7 +1,7 @@
 #ifndef BLOCKNOTE_WALLET_WALLET_H
 #define BLOCKNOTE_WALLET_WALLET_H
 
-namespace blocknote {
+namespace bnc {
 namespace wallet {
 
 class Wallet {

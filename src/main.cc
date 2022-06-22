@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "bnc/block.hh"
-#include "bnc/wallet.hh"
+#include "blocknote/block.hh"
+#include "blocknote/wallet.hh"
 
 int main(int argc, char **argv) {
   std::cout << "It works!" << std::endl;
