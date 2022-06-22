@@ -3,12 +3,12 @@
 
 #include <string>
 
-namespace bnc {
+namespace blocknote {
 namespace block {
 
 class Block {
  public:
-  void create_block();  
+  void create_block();
   int get_index();
   std::string get_hash();
 
@@ -17,7 +17,6 @@ class Block {
   std::string previous_hash_;
   std::string current_hash_;
   std::string nonce_;
-
 };
 
 }  // namespace block
