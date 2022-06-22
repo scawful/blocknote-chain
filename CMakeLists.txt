@@ -33,8 +33,14 @@ add_executable(
   blocknote-chain
   src/main.cc
   src/blocknote/block.cc
-  src/blocknote/chain.cc
+  src/blocknote/blockchain.cc
+  src/blocknote/commands.cc
+  src/blocknote/database.cc
+  src/blocknote/network.cc
   src/blocknote/delta.cc
+  src/blocknote/network.cc
+  src/blocknote/transaction.cc
+  src/blocknote/key_pair.cc
   src/blocknote/wallet.cc
   src/blocknote/sha256.cc
 )
@@ -42,6 +48,7 @@ add_executable(
 include_directories(
   blocknote-chain
   include/
+  ${Boost_INCLUDE_DIRS}
 )
 
 target_link_libraries(
