@@ -33,6 +33,8 @@ add_executable(
   blocknote-chain
   src/main.cc
   src/blocknote/block.cc
+  src/blocknote/chain.cc
+  src/blocknote/delta.cc
   src/blocknote/wallet.cc
   src/blocknote/sha256.cc
 )

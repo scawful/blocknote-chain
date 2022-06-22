@@ -1,11 +1,29 @@
 #ifndef BLOCKNOTE_CHAIN_H
 #define BLOCKNOTE_CHAIN_H
 
+#include <cstdlib>
+#include <cstdint>
+#include "blocknote/block.hh"
+
 namespace blocknote {
-class Chain {
-  public:
-    Chain();
+
+class blockchain {
+ public:
+  blockchain() = default;
+
+  void push_block(const block& new_block);
+  int get_height();
+  block get_last_block();
+  bool get_block(uint16_t block_hash, block& out);
+  bool get_tx(int16_t tx_hash, char& out);
+  bool get_balance(int32_t address, uint64_t balance);
+  void reset_pool(size_t delta);
+
+  private:
+    uint16_t id_;
+    block genesis_block_;
 };
+
 }  // namespace blocknote
 
 #endif
