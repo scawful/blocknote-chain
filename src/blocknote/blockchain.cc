@@ -2,6 +2,8 @@
 
 namespace blocknote {
 
+void blockchain::push_block(const block& new_block) { chain_.push(new_block); }
+
 block blockchain::get_last_block() { return chain_.get_last_block(); }
 
 bool blockchain::get_block(std::string block_hash, block& b) {
