@@ -29,7 +29,7 @@ class block {
 
   void print();
   tx_list_t tx_list() const;
-  block::blockheader header() const;
+  blockheader header() const;
   std::string hash() const;
 
   void setup(tx_list_t& txs);
