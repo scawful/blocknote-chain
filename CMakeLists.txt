@@ -10,6 +10,15 @@ set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost REQUIRED)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 
+find_package(SDL2 REQUIRED)
+
+set(IMGUI_PATH  "src/viewer/lib/imgui")
+file(GLOB IMGUI_SOURCES ${IMGUI_PATH}/*.cpp)
+add_library("ImGui" STATIC ${IMGUI_SOURCES})
+target_include_directories("ImGui" PUBLIC ${IMGUI_PATH})
+target_include_directories(ImGui PUBLIC ${SDL2_INCLUDE_DIR})
+target_compile_definitions(ImGui PUBLIC IMGUI_IMPL_OPENGL_LOADER_CUSTOM=<SDL2/SDL_opengl.h>  GL_GLEXT_PROTOTYPES=1)
+
 if(APPLE)
     set(OPENSSL_INCLUDE_DIR "/usr/local/Cellar/openssl@1.1/1.1.1o/include")
     set(OPENSSL_CRYPTO_LIBRARY "/usr/local/Cellar/openssl@1.1/1.1.1o/lib/libcrypto.dylib")
@@ -41,18 +50,30 @@ add_executable(
   src/blocknote/network.cc
   src/blocknote/transaction.cc
   src/blocknote/key_pair.cc
-  src/blocknote/wallet.cc
   src/blocknote/sha256.cc
+  ${IMGUI_PATH}/imgui.cpp 
+  ${IMGUI_PATH}/imgui_demo.cpp
+  ${IMGUI_PATH}/imgui_draw.cpp 
+  ${IMGUI_PATH}/imgui_widgets.cpp
+  ${IMGUI_PATH}/backends/imgui_impl_sdl.cpp
+  ${IMGUI_PATH}/backends/imgui_impl_sdlrenderer.cpp 
+  ${IMGUI_PATH}/misc/cpp/imgui_stdlib.cpp
 )
 
 include_directories(
   blocknote-chain
   include/
+  ${SDL2_INCLUDE_DIR}
+  src/viewer/lib/
   ${Boost_INCLUDE_DIRS}
 )
 
 target_link_libraries(
   blocknote-chain 
   ${BOOST_LIBRARIES} 
+  ${SDL2_LIBRARIES} 
+  ${OPENGL_LIBRARIES} 
   OpenSSL::SSL 
+  ImGui 
+
 )
