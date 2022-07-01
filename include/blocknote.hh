@@ -4,6 +4,5 @@
 #include <iostream>
 
 #include "blocknote/block.hh"
-#include "blocknote/wallet.hh"
 
 #endif
