@@ -15,7 +15,7 @@ class miner {
   miner(const miner&) = default;
   miner(miner&&) = default;
 
-  void print() { std::cout << "class miner" << std::endl; }
+  void print() const { std::cout << "class miner" << std::endl; }
 
   void start(std::string& addr);
   inline bool pow_once(block& new_block, std::string& addr);
