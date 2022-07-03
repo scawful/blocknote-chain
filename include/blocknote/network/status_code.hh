@@ -1,5 +1,5 @@
-#ifndef BLOCKNOTE_NETWORK_STATUSCOODE_HH
-#define BLOCKNOTE_NETWORK_STATUSCOODE_HH
+#ifndef BLOCKNOTE_NETWORK_STATUSCODE_HH
+#define BLOCKNOTE_NETWORK_STATUSCODE_HH
 
 #include <string>
 #include <vector>
@@ -163,7 +163,7 @@ inline status_code status_code(const std::string &status_code_str) noexcept {
   return status_code::unknown;
 }
 
-inline const std::string &status_code(status_code status_code_enum) noexcept {
+inline const std::string &status_code(enum status_code status_code_enum) noexcept {
   for (auto &status_code : status_codes()) {
     if (status_code.first == status_code_enum) return status_code.second;
   }
@@ -172,4 +172,4 @@ inline const std::string &status_code(status_code status_code_enum) noexcept {
 }  // namespace network
 }  // namespace blocknote
 
-#endif  // SIMPLE_WEB_STATUS_CODE_HPP
+#endif  // BLOCKNOTE_NETWORK_STATUSCODE_HH
