@@ -36,7 +36,6 @@ add_executable(
   src/blocknote/blockchain.cc
   src/blocknote/commands.cc
   src/blocknote/database.cc
-  src/blocknote/network.cc
   src/blocknote/transaction.cc
   src/blocknote/sha256.cc
 )

@@ -6,7 +6,6 @@
 #include "blocknote/blockchain.hh"
 #include "blocknote/consensus.hh"
 #include "blocknote/logging.hh"
-#include "blocknote/network.hh"
 
 namespace blocknote {
 
