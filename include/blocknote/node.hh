@@ -23,10 +23,8 @@ class node {
   void miner_run(std::string address);
 
   blockchain& chain() { return blockchain_; }
-  network& p2p() { return network_; }
 
  private:
-  network network_;
   blockchain blockchain_;
   miner miner_{blockchain_};
 };

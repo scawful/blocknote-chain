@@ -5,7 +5,6 @@
 #include <filesystem>
 
 #include "blocknote/block.hh"
-#include "blocknote/key_pair.hh"
 
 namespace blocknote {
 
@@ -29,7 +28,10 @@ class chain_database : public database {
 
   bool get_tx(const std::string tx_hash, tx& t) { return true; }
 };
-
+struct key_pair {
+  int key;
+  void *value;
+};
 class key_pair_database : public database {
  public:
   uint64_t height();
