@@ -13,7 +13,7 @@ from PySide6.QtWidgets import (QTabWidget,
                                QComboBox)
 import sys
 
-def GenerateBitcoinAddress():
+def generate_bitcoin_address():
   outfile = open('wallet.txt','w')
   private_key =random_key()
   print (private_key)
@@ -61,10 +61,15 @@ class DynamicButton(QWidget):
         # Set tooltip text for the button
         self.btn.setToolTip('This is a simple button')
         # Set the geometry of the button
-        self.btn.setGeometry(0, 0, 200, 40)
+        self.btn.setGeometry(100, 20, 200, 40)
 
         # Call function when the button is clicked
         self.btn.clicked.connect(self.onClicked)
+
+        # Define label at the bottom of the button
+        self.msgLabel = QLabel('', self)
+        # Set the geometry of the label
+        self.msgLabel.setGeometry(90, 60, 290, 60)
 
         # Display the window
         self.show()
@@ -72,7 +77,7 @@ class DynamicButton(QWidget):
     # Define function to handle the click event of the button
     def onClicked(self):
         # Set text for the label
-        GenerateBitcoinAddress()
+        self.msgLabel.setText(generate_bitcoin_address())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
