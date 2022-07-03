@@ -1,3 +1,16 @@
+from bitcoin import *
+outfile = open('wallet.txt','w')
+private_key =random_key()
+print (private_key)
+public_key = privtopub (private_key)
+print (public_key)
+address = pubtoaddr (public_key)
+print ('my address is :' +address)
+outfile.write ('my bitcoin address :' +address+ '\n')
+outfile.write ('my public key :' +privtopub (private_key)+ '\n')
+outfile.write ('my hexadecimal private key :' +private_key +'/n')
+pub1 = privtopub(random_key())
+
 from PySide6.QtWidgets import QTabWidget, QApplication, QWidget, QLabel, QPushButton, QVBoxLayout
 from PySide6.QtCore import Qt
 import sys
@@ -9,7 +22,6 @@ from PySide6.QtWidgets import (QApplication,
                                QGroupBox,
                                QPushButton,
                                QLabel,
-                               QSpinBox,
                                QLineEdit,
                                QRadioButton,
                                QComboBox)
@@ -20,10 +32,14 @@ class ButtonAndLabel(QWidget):
     def __init__(self):
         super(ButtonAndLabel, self).__init__()
 
-        self.button = QPushButton("button")
+        self.button = QPushButton("Generate Random Public Key")
         self.button.clicked.connect(self.buttonClicked)
-
-        self.label = QLabel("label: before clicked")
+        self.label = QLabel("Key Not Generated")
+        
+        combo_box = QComboBox()
+        combo_box.addItem('public key')
+        print (public_key)
+        print ('my address is :' +address)
 
         layout = QVBoxLayout()
         layout.addWidget(self.button)
@@ -32,7 +48,8 @@ class ButtonAndLabel(QWidget):
         self.setLayout(layout)
 
     def buttonClicked(self):
-        self.label.setText("label: after clicked")
+        self.label.setText("Key Generated")
+        combo_box = QComboBox()
 
 class TabbedWindow(QTabWidget):
     def __init__(self, parent=None):
@@ -40,21 +57,23 @@ class TabbedWindow(QTabWidget):
         widget1 = QWidget()
         self.widget2 = ButtonAndLabel()
         widget3 = QWidget()
-        self.addTab(widget1, "Tab 1")
-        self.addTab(self.widget2, "Tab 2")
+        self.addTab(widget1, "Transact")
+        self.addTab(self.widget2, "Balance")
         self.addTab(widget3, "Tab 3")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     # Creation of GUI widgets, not yet on the screen
-    button = QPushButton('Submit Order')
+    button = QPushButton('Submit Action')
     label = QLabel('Currency')
-    spinbox = QSpinBox()
+    layout = QVBoxLayout ()
+    hello_line_edit = QLineEdit ()
+    layout.addWidget (hello_line_edit)
     lineedit = QLineEdit()
-    radio_button1 = QRadioButton('Generate Address')
-    radio_button2 = QRadioButton('Generate Public Key')
-    radio_button3 = QRadioButton('Generate Private Key')
+    radio_button1 = QRadioButton('Send')
+    radio_button2 = QRadioButton('Receive')
+    radio_button3 = QRadioButton('Swap')
     combo_box = QComboBox()
     combo_box.addItems(["Bitcoin", "Ethereum", "Dogecoin", "Blocknote"])
 
@@ -64,7 +83,7 @@ if __name__ == "__main__":
     vlayout.addWidget(radio_button1)
     vlayout.addWidget(radio_button2)
     vlayout.addWidget(radio_button3)
-    vlayout.addWidget(spinbox)
+
 
     # Horizontal box of widgets 
     hlayout = QHBoxLayout()
@@ -79,13 +98,15 @@ if __name__ == "__main__":
     button_and_label = ButtonAndLabel()
 
     main_tab_area = QTabWidget()
-    main_tab_area.addTab(button_and_label, "Tab 1")
-    main_tab_area.addTab(combo_box, "Tab 2")
+    main_tab_area.addTab(button_and_label, "Transact")
+    main_tab_area.addTab(combo_box, "Wallet")
 
     layout = QVBoxLayout()
     layout.addWidget(main_tab_area)
     layout.addWidget(top_groupbox)
     layout.addWidget(bottom_groupbox)
+
+    
 
     window = QWidget()
     window.setLayout(layout)
@@ -93,3 +114,4 @@ if __name__ == "__main__":
     window.resize (1000, 900)
 
     sys.exit(app.exec_())
+
