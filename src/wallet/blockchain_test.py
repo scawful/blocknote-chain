@@ -46,7 +46,9 @@ class Block():
 class Blockchain():
     difficulty = 4
 
-    def __init__(self,chain=[]):
+    def __init__(self, chain=None):
+        if chain is None:
+            chain = list()
         self.chain = chain
 
     def add(self, block):
@@ -67,7 +69,7 @@ class Blockchain():
             else:
                 block.nonce += 1
 
-    def isValid(self):
+    def is_valid(self):
         for i in range(1,len(self.chain)):
             _previous = self.chain[i].previous_hash
             _current = self.chain[i-1].hash()
@@ -90,7 +92,7 @@ def main():
     for block in blockchain.chain:
         print(block)
 
-    print(blockchain.isValid())
+    print(blockchain.is_valid())
 
     
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-from bitcoin import *
+from bitcoin import random_key, privtopub, mk_multisig_script, scriptaddr, pubtoaddr
 from PySide6.QtWidgets import (QTabWidget, 
                                QApplication, 
                                QWidget, 
@@ -15,7 +15,7 @@ import sys
 
 def generate_bitcoin_address():
   outfile = open('wallet.txt','w')
-  private_key =random_key()
+  private_key = random_key()
   print (private_key)
   public_key = privtopub (private_key)
   print (public_key)
