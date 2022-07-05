@@ -6,7 +6,6 @@
 
 #include "blocknote/block.hh"
 #include "blocknote/database.hh"
-#include "blocknote/key_pair.hh"
 
 namespace blocknote {
 
