@@ -1,6 +1,0 @@
-usage: hwi [-h] [--device-path DEVICE_PATH] [--device-type DEVICE_TYPE]
-           [--password PASSWORD] [--stdinpass]
-           [--chain {main,test,regtest,signet}] [--debug]
-           [--fingerprint FINGERPRINT] [--version] [--stdin] [--interactive]
-           [--expert]
-           {enumerate,getmasterxpub,signtx,getxpub,signmessage,getkeypool,getdescriptors,displayaddress,setup,wipe,restore,backup,promptpin,togglepassphrase,sendpin,installudevrules}
