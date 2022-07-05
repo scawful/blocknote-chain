@@ -1,3 +1,0 @@
-my bitcoin address :1A8dH3gTTMBjKVaPb4p2mKvKhK7cjgvwdt
-my public key :0404af3019ff25022e6d184a64c5085d6a168998c22772ec4251c0fb08e625d0d541a9d0c4dadfe5c2b6268d6d5db1533a87521460fc9dbaa4772cdc216c6ba38d
-my hexadecimal private key :c0c7b9bfde43377fd6cf2e4337b5d84b7c0b7dc91a686d678de1b5628dd7ca0d/n
